@@ -115,140 +115,89 @@ main button.get-random {
 /******************************************************    Info page     *****************************************************************/
 
 
-/* main > .info {
-    padding: 0 20% 0 10%;
+main > .info {
+    padding: 0 50px 0 50px;
     align-content: center;
 }
 
 main > .info > .beer-img {
     height: 700px;
     width: auto;
-    margin-right: 10%;
+    margin-left: 200px;
 }
 
 main > .info > .beer-info {
+   
+    padding: 0 50px 0 50px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
+    font-size: 16px;
 }
 
 main > .info > .beer-info h2 {
     display: block;
     font-size: 4em;
     color: white;
-    text-shadow: 2px 1px 1px black; /* horizontal-offset vertical-offset 'blur' colour
+    text-shadow: 2px 1px 1px black;         /* horizontal-offset vertical-offset 'blur' colour */
     -moz-text-shadow: 2px 1px 1px black;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 main > .info > .beer-info > p {
-    line-height: 140%;
+    line-height: 120%;
     font-size: 1.2em;
     margin-bottom: 4%;
 }
 
+main > .info > .beer-info > p:nth-of-type(1) {
+    margin-top: -30px;
+    font-size: 16px;
+}
+
 main > .info > .beer-info p.food {
     text-align: center;
+    width: 500px;
+    font-size: 16px;
+    align-self: center;
 }
 
 main > .info > .beer-info p.tips {
     text-align: center;
+    width: 500px;
+    font-size: 16px;
+    align-self: center;
 }
-main > .info > .beer-info p:nth-of-type(4) {
-    margin-top: 6%;
-    margin-bottom: 1%;
+
+main > .info > .beer-info > .description {
+    font-size: 20px;
+    width: 900px;
+    align-self: center;
 }
 
 main > .info > .beer-info ul {
+    align-self: center;
+    width: 500px;
     list-style-type: none;
+    line-height: 200%;
+    text-align: left;
+    font-size: 16px;
+}
+main > .info > .beer-info ul > p {
+    font-size: 20px;
 }
 
 main > .info > .beer-info img {
-    height: 50px;
-    width: auto;
-} */
-
-main .info {
-    width: 100%;
-    height: 700px;
-    border: 1px solid red;
-    display: flex;
-}
-
-main .info > img {
-    height: 700px;
-    width: auto;
-    margin-left: 200px;
-}
-
-main .info > h2 {
-    font-size: 4em;
-    text-align: center;
-    width: 5000px;
-    height: 200px;
-    border: 1px solid red;
-    position: relative;
-    left: 200px;
-}
-
-main .info > .volume {
-    border: 1px solid red;
-    height: 50px;
-    width: 150%;
-    position: relative;
-    top: 155px;
-    right: 250px;
-}
-
-main .info > .description {
-    width: 1500%;
-    font-size: 20px;
-    height: 200px;
-    border: 1px solid red;
-    position: relative;
-    top: 400px;
-    right: 400px;
-}
-
-
-main .info > .beer-info {
-    font-size: 16px;
-    border: 1px solid red;
-    width: 1000px;
-    height: 400px;
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 100px;
-    line-height: 150%;
-}
-
-main .info > .beer-info ul {
-    list-style-type: none;
-    line-height: 200%;
-    width: 400px;
-    border: 1px solid red;
-}
-
-main .info > .beer-info ul > p {
-    font-size: 20px;
-}
-
-main .info > .beer-info > p:nth-of-type(2) {
-    width: 400px;
-    position: relative;
-    right: -500px;
-    top: -30px;
-}
-
-main .info > .beer-info img {
     height: 40px;
-    width: auto;
-    margin-bottom: 10px;
-    position: relative;
-    right: -13px;
+    width: 40px;
+    align-self: center;
+    margin-top: 50px;
 }
-
-
+main > .info > .beer-info img:nth-of-type(2) {
+    margin-top: 0;
+}
 
 /******************************************************    Search page     *****************************************************************/
 
@@ -272,14 +221,25 @@ main .wrapper-form > h1 {
 
 
 main .wrapper-form > .form-search {
-    justify-self: center;
-    align-self: center;
-    width: 100%;
+    width: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    columns: auto auto;
+    justify-content: flex-start;
+    text-align: left;
+    color: black;
 }
+
+main .wrapper-form > .form-search label {
+    color: black;
+    font-weight: 700;
+}
+
+main .wrapper-form > .form-search button {
+    width: 200px;
+    padding: 10px 20px;
+}
+
 
 main .wrapper-form > .form-search:nth-child(2) {
     color: white;
@@ -290,51 +250,18 @@ main .wrapper-form > .form-search > p {
     margin-top: 10px;
 }
 
-main .wrapper-form > .form-search > span {
-    margin-left: 50%;
-    color: darkblue;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-main .wrapper-form > .form-search > .search-name {
-    width: 60%;
+main .wrapper-form > .form-search > input {
+    width: 80%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
     padding: 12px 20px 12px 40px;
+    margin-bottom: 15px;
 }
 
-main .wrapper-form > .form-search > .advanced {
-    padding-top: 10px;
-    width: 90%;
-    /* display: grid; */
-    grid-template-columns: auto auto;
-    gap: 10px;
-}
 
-main .wrapper-form > .form-search > .advanced > label {
-    margin-top: 2%;
-}
-main .wrapper-form > .form-search > .advanced > label:nth-of-type(5), label:nth-of-type(6) {
-    color: black;
-}
-
-main .wrapper-form > .form-search > .advanced > input {
-    width: 75%;
-    height: 106%;
-    margin-bottom: 2%;
-}
-
-main .wrapper-form > .form-search > .advanced > button {
-    margin-top: 5%;
-    width: 20%;
-    padding: 10px;
-    font-size: 1.4em;
-    justify-self: center;
-}
 
 /* main .wrapper-form .form-search > .search-btn {
     width: auto;
@@ -348,9 +275,20 @@ main > .search > .wrapper-form .form-search > .search-btn:hover {
     color: black;
 } */
 
-main > .search > .wrapper-form .form-search > ul {
+
+
+main > .search > .wrapper-form ul {
     text-align: left;
     width: 40%;
+    position: relative;
+    top: -500px;
+    left: 600px;
+}
+
+main > .search > .wrapper-form h2 {
+    position: relative;
+    top: -500px;
+    left: 420px;
 }
 
 main > .search > .wrapper-form ul > li {
@@ -368,12 +306,15 @@ main > .search ul > li:hover {
     font-weight: 700;
 }
 
-main > .search > .wrapper-form > span {
+main > .search > .wrapper-form span {
     color: red;
     font-weight: 700;
+    font-size: 1.5em;
     width: 59.9%;
-    background-color: rgba(255, 255, 255, 0.815);
     margin-left: 20%;
+    position: relative;
+    top: -420px;
+    left: 290px;
 }
 
 

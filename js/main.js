@@ -51,13 +51,53 @@ function renderSearchList(result) {
 
 async function search() {
     let result
-    const url = 'https://api.punkapi.com/v2/beers?beer_name='
-    const input = document.querySelector('.search-name')
-    input.addEventListener('keyup', async () => {
-        result = await getData(url + input.value)
-        //console.log(result)
-        renderSearchList(result)
+    const url = 'https://api.punkapi.com/v2/beers?'
+    const nameSearch = '&beer_name='
+    const hopsSearch = '&hops='
+    const maltSearch = '&malt='
+    let searchString = ''
+    const name = document.querySelector('.search-name')
+    const hops = document.querySelector('.search-hops')
+    const malt = document.querySelector('.search-malt')
+    /* const bb = document.querySelector('.bre-bf')
+    const ba = document.querySelector('.bre-af')
+    const abvG = document.querySelector('.abv-gt')
+    const abvL = document.querySelector('.abv-lt') */
+    name.addEventListener('keyup', async () => {
+        searchString += nameSearch + name.value
     })
+    hops.addEventListener('keyup', async () => {
+        searchString += hopsSearch + hops.value
+        //url += '&hops=' + hops.value
+        //result = await getData(url + 'hops=' + hops.value)
+        //renderSearchList(result)
+    })
+    malt.addEventListener('keyup', async () => {
+        //url += '&malt=' + malt.value
+        //result = await getData(url + 'malt=' + malt.value)
+        //renderSearchList(result)
+    })
+    /* bb.addEventListener('keyup', async () => {
+        console.log('bb')
+        result = await getData(url + 'brewed_before' + bb.value)
+        //renderSearchList(result)
+    })
+    ba.addEventListener('keyup', async () => {
+        console.log('ba')
+        result = await getData(url + 'brewed_after=' + ba.value)
+        //renderSearchList(result)
+    })
+    abvG.addEventListener('keyup', async () => {
+        console.log('abvG')
+        result = await getData(url + 'abv_gt' + abvG.value)
+        //renderSearchList(result)
+    })
+    abvL.addEventListener('keyup', async () => {
+        console.log('abvL')
+        result = await getData(url + 'abv_lt' + abvL.value)
+        //renderSearchList(result)
+    }) */
+    
 }
 
 
@@ -65,9 +105,6 @@ function renderDetails (beer) {
     console.log(beer)
     const beerImg = document.querySelector('.beer-img')
     const beerInfo = document.querySelector('.beer-info')
-    const heading = document.querySelector('.info h2')
-    const volume = document.querySelector('.info .volume')
-    const description = document.querySelector('.info .description')
     beerImg.src = beer.image_url
     let beerMalt = ''
     for(let i = 0; i < beer.ingredients.malt.length; i++) {
@@ -86,19 +123,18 @@ function renderDetails (beer) {
         }
         
     }
-    heading.innerText = beer.name
-    volume.innerText = `Alcohol by volume: ${beer.abv}, Volume: ${beer.volume.value} ${beer.volume.unit}`
-    description.innerText = beer.description
-
     beerInfo.innerHTML = `
-        <ul>
-        <p>Ingredients: </p>
-        <li>Hops: ${beerHops}</li>
-        <li>Malt: ${beerMalt}</li>
-        <li>Yeast: ${beer.ingredients.yeast}</li>
-        </ul>
-        <p class="food"> <img src="assets/fork.png"> <br> Food pairing: <br> ${beer.food_pairing}</p><br>
-        <p class="tips"> <img src="assets/beer.png"> <br> Brewers tips: <br>${beer.brewers_tips}</p>
+    <h2>${beer.name}</h2>
+    <p>Alcohol by volume: ${beer.abv}, Volume: ${beer.volume.value} ${beer.volume.unit} </p> 
+    <p class="description">${beer.description}</p>
+    <ul>
+    <p>Ingredients: </p>
+    <li>Hops: ${beerHops}</li>
+    <li>Malt: ${beerMalt}</li>
+    <li>Yeast: ${beer.ingredients.yeast}</li>
+    </ul>
+    <img src="assets/fork.png"> <p class="food"> Food pairing: <br> ${beer.food_pairing}</p><br>
+    <img src="assets/beer.png"> <p class="tips"> Brewers tips: <br>${beer.brewers_tips}</p>
     `
 }
 
@@ -132,10 +168,6 @@ async function randomBeer() {
 }
 
 // if page classlist containts 'active' => 
-document.querySelector('.form-search > span').addEventListener('click', () => {
-    //document.querySelector('.advanced').classList.remove('display-none')
-    document.querySelector('.advanced').style.display = 'grid'
-})
 document.querySelector('.get-random').addEventListener('click', randomBeer)
 randomBeer()
 search()

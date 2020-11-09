@@ -37,9 +37,6 @@
         <section class="info">
 
             <img src="" alt="" class="beer-img">
-            <h2></h2>
-            <p class="volume"></p>
-            <p class="description"></p>
             <div class="beer-info"></div>
 
         </section>
@@ -50,38 +47,41 @@
             <div class="wrapper-form">
                 <h1>Find Your Beer!</h1>
                 <form action="" class="form-search">
-                    <label>Search by Beer Name</label>
-                    <span>Advanced Search</span>
+                    <label>Beer Name</label>
                     <input type="text" placeholder="Beer Name.." class="search-name">
-                    <div class="advanced display-none">
-                        <label>Search by Hops</label>
-                        <input type="text" placeholder="" class="search-hops">
-                        <label>Search by Malt</label>
-                        <input type="text" placeholder="" class="search-malt">
-                        <label>Brewed Before</label>
-                        <input type="month" placeholder="mm-yyyy" class="bre-bf">
-                        <label>Brewed After</label>
-                        <input type="month" placeholder="mm-yyy" class="bre-af">
-                        <label>ABV Greather Than</label>
-                        <input type="number" placeholder="0.0" class="abv-gt">
-                        <label>ABV Less Than</label>
-                        <input type="number" placeholder="0.0" class="abv-lt">
-                        <button>Search</button>
-                    </div>
+                    
+                    <label>Hops</label>
+                    <input type="text" placeholder="Hops Name.." class="search-hops">
+                    <label>Malt</label>
+                    <input type="text" placeholder="Malt Name.." class="search-malt">
+                    <label>Brewed Before</label>
+                    <input type="month" placeholder="mm-yyyy" class="bre-bf">
+                    <label>Brewed After</label>
+                    <input type="month" placeholder="mm-yyy" class="bre-af">
+                    <label>Alcohol By Volume Greather Than</label>
+                    <input type="number" placeholder="0.0" class="abv-gt">
+                    <label>Alcohol By Volume Less Than</label>
+                    <input type="number" placeholder="0.0" class="abv-lt">
+                    <button>Search</button>   
+                    
                 </form>
-                <span class="error-msg"></span>
-                <ul class="result-list hidden">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <div class="result">
+                    <h2>Results:</h2>
+                    <span class="error-msg"></span>
+                    <ul class="result-list">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                
             </div>
         </section>
 
