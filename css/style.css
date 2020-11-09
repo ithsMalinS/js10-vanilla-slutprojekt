@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 99vw;
+    background-color: white;
+    /* background: linear-gradient(150deg, rgb(187, 29, 86), 45%, rgb(232, 233, 234) 36%); */
+    background: linear-gradient(150deg, rgb(98, 209, 240), 45%, rgb(232, 233, 234) 36%);
+    /* background-color: rgb(198, 223, 231); */
+    font-family: sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    padding-top: 20px;
+}
+
+header > nav {
+    width: inherit;
+    text-align: center;
+}
+
+header > nav > a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.4em;
+}
+
+
+main {
+    display: flex;
+    width: 100%;
+    height: 80%;
+}
+
+main > section {
+    width: 100%;
+    display: none;
+}
+
+
+/******************************************************    Startpage     *****************************************************************/
+
+
+main .random {
+    width: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+main .random > .card {
+    margin-left: 25%;
+    height: 600px;
+    width: 400px;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+main .random > .card > .card-top {
+    height: 72%;
+    width: inherit;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+}
+
+main .random > .card > .card-top > img {
+    height: 350px;
+    width: auto;
+    align-self: center;
+}
+
+main .random > .card > .card-bottom {
+    text-align: center;
+    font-size: 1.2em;
+    padding: 10px;
+    outline: none;
+    background-color: white;
+    height: 30%;
+}
+
+main .random > .card > .card-bottom .card-btn {
+    border: none;
+    margin-top: 7%;
+    margin-left: 60%;
+    background-color: inherit;
+    outline: none;
+}
+
+main .random > .card > .card-bottom .card-btn > span {
+    margin-left: 10px;
+}
+
+main button.get-random {
+    width: 15%;
+    height: 10%;
+    margin-top: 14%;
+    margin-right: 30%;
+    padding: 10px 10px;
+    font-size: 1.5em;
+    
+    outline: none;
+    box-shadow: none;
+    background-color: rgb(98, 209, 240);
+}
+
+
+
+
+/******************************************************    Info page     *****************************************************************/
+
+
+main > .info {
+    padding: 0 20% 0 10%;
+    align-content: center;
+}
+
+main > .info > .beer-img {
+    height: 700px;
+    width: auto;
+    margin-right: 10%;
+}
+
+main > .info > .beer-info {
+    justify-content: center;
+    text-align: center;
+}
+
+main > .info > .beer-info h2 {
+    display: block;
+    font-size: 4em;
+    color: white;
+    text-shadow: 2px 1px 1px black; /* horizontal-offset vertical-offset 'blur' colour */
+    -moz-text-shadow: 2px 1px 1px black;
+    margin-bottom: 40px;
+}
+
+main > .info > .beer-info > p {
+    line-height: 140%;
+    font-size: 1.2em;
+    margin-bottom: 4%;
+}
+
+main > .info > .beer-info p.food {
+    text-align: center;
+}
+
+main > .info > .beer-info p.tips {
+    text-align: center;
+}
+main > .info > .beer-info p:nth-of-type(4) {
+    margin-top: 6%;
+    margin-bottom: 1%;
+}
+
+main > .info > .beer-info ul {
+    list-style-type: none;
+}
+
+main > .info > .beer-info img {
+    height: 50px;
+    width: auto;
+}
+
+
+/******************************************************    Search page     *****************************************************************/
+
+
+main .wrapper-form {
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    
+    margin-left: 15%;
+    text-align: center;
+}
+
+main .wrapper-form > h1 {
+    font-size: 3em;
+    margin-bottom: 5%;
+    color: white;
+}
+
+
+main .wrapper-form > .form-search {
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .wrapper-form > .form-search:nth-child(2) {
+    color: white;
+    margin-top: -2%;
+}
+
+main .wrapper-form > .form-search > p {
+    margin-top: 10px;
+}
+
+main .wrapper-form > .form-search > span {
+    margin-left: 50%;
+    color: darkblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+main .wrapper-form > .form-search > .search-name {
+    width: 60%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+}
+
+main .wrapper-form > .form-search > .advanced {
+    padding-top: 10px;
+    width: 90%;
+    /* display: grid; */
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
+main .wrapper-form > .form-search > .advanced > label {
+    margin-top: 2%;
+}
+main .wrapper-form > .form-search > .advanced > label:nth-of-type(5), label:nth-of-type(6) {
+    color: black;
+}
+
+main .wrapper-form > .form-search > .advanced > input {
+    width: 75%;
+    height: 106%;
+    margin-bottom: 2%;
+}
+
+main .wrapper-form > .form-search > .advanced > button {
+    margin-top: 5%;
+    width: 20%;
+    padding: 10px;
+    font-size: 1.4em;
+    justify-self: center;
+}
+
+/* main .wrapper-form .form-search > .search-btn {
+    width: auto;
+    padding: 10px;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: grey;
+}
+
+main > .search > .wrapper-form .form-search > .search-btn:hover {
+    color: black;
+} */
+
+main > .search > .wrapper-form .form-search > ul {
+    text-align: left;
+    width: 40%;
+}
+
+main > .search > .wrapper-form ul > li {
+    width: 795px;
+    text-align: left;
+    list-style-type: none;
+    font-size: 16px;
+    /* background-color: rgba(255, 255, 255, 0.63); */
+    cursor: pointer;
+    margin-left: 20%;
+    padding: 1.2% 0 1.1% 2%;
+}
+
+main > .search ul > li:hover {
+    font-weight: 700;
+}
+
+main > .search > .wrapper-form > span {
+    color: red;
+    font-weight: 700;
+    width: 59.9%;
+    background-color: rgba(255, 255, 255, 0.815);
+    margin-left: 20%;
+}
+
+
+/******************************************************    Visibility     *****************************************************************/
+
+.active {
+    display: flex;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.display-none {
+    display: none;
+}

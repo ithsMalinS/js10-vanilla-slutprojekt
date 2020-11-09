@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Search</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Home Page -->
+        <section class="home active">
+
+            <div class="random">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-bottom">
+                        <h2></h2>
+                        <p></p>
+                        <button class="card-btn hidden">See more <span>&#8250;</span></button>
+                    </div>
+                </div>
+            </div>
+            <button class="get-random">Randomize!</button>
+            
+        </section>
+
+        <!-- Info Page -->
+        <section class="info">
+
+            <img src="" alt="" class="beer-img">
+            <div class="beer-info"></div>
+
+        </section>
+
+        
+        <!-- Search Page -->
+        <section class="search">
+            <div class="wrapper-form">
+                <h1>Find Your Beer!</h1>
+                <form action="" class="form-search">
+                    <label>Search by Beer Name</label>
+                    <span>Advanced Search</span>
+                    <input type="text" placeholder="Beer Name.." class="search-name">
+                    <div class="advanced display-none">
+                        <label>Search by Hops</label>
+                        <input type="text" placeholder="" class="search-hops">
+                        <label>Search by Malt</label>
+                        <input type="text" placeholder="" class="search-malt">
+                        <label>Brewed Before</label>
+                        <input type="month" placeholder="mm-yyyy" class="bre-bf">
+                        <label>Brewed After</label>
+                        <input type="month" placeholder="mm-yyy" class="bre-af">
+                        <label>ABV Greather Than</label>
+                        <input type="number" placeholder="0.0" class="abv-gt">
+                        <label>ABV Less Than</label>
+                        <input type="number" placeholder="0.0" class="abv-lt">
+                        <button>Search</button>
+                    </div>
+                </form>
+                <span class="error-msg"></span>
+                <ul class="result-list hidden">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
