@@ -65,6 +65,9 @@ function renderDetails (beer) {
     console.log(beer)
     const beerImg = document.querySelector('.beer-img')
     const beerInfo = document.querySelector('.beer-info')
+    const heading = document.querySelector('.info h2')
+    const volume = document.querySelector('.info .volume')
+    const description = document.querySelector('.info .description')
     beerImg.src = beer.image_url
     let beerMalt = ''
     for(let i = 0; i < beer.ingredients.malt.length; i++) {
@@ -83,18 +86,19 @@ function renderDetails (beer) {
         }
         
     }
+    heading.innerText = beer.name
+    volume.innerText = `Alcohol by volume: ${beer.abv}, Volume: ${beer.volume.value} ${beer.volume.unit}`
+    description.innerText = beer.description
+
     beerInfo.innerHTML = `
-    <h2>${beer.name}</h2>
-    <p class="description">${beer.description}</p>
-    <img src="assets/fork.png"> <p class="food"> Food pairing: <br> ${beer.food_pairing}</p><br>
-    <img src="assets/beer.png"> <p class="tips"> Brewers tips: <br>${beer.brewers_tips}</p>
-    <p>Ingredients: </p>
-    <ul>
-    <li>Hops: ${beerHops}</li>
-    <li>Malt: ${beerMalt}</li>
-    <li>Yeast: ${beer.ingredients.yeast}</li>
-    
-    </ul>
+        <ul>
+        <p>Ingredients: </p>
+        <li>Hops: ${beerHops}</li>
+        <li>Malt: ${beerMalt}</li>
+        <li>Yeast: ${beer.ingredients.yeast}</li>
+        </ul>
+        <p class="food"> <img src="assets/fork.png"> <br> Food pairing: <br> ${beer.food_pairing}</p><br>
+        <p class="tips"> <img src="assets/beer.png"> <br> Brewers tips: <br>${beer.brewers_tips}</p>
     `
 }
 
