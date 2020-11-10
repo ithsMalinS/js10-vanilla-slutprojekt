@@ -46,27 +46,28 @@
         <section class="search">
             <div class="wrapper-form">
                 <h1>Find Your Beer!</h1>
-                <form action="" class="form-search">
+                <form name="advancedSearch" class="form-search">
                     <label>Beer Name</label>
-                    <input type="text" placeholder="Beer Name.." class="search-name">
-                    
+                    <input type="text" placeholder="Beer Name.." class="search-name" name ="&beer_name=">
                     <label>Hops</label>
-                    <input type="text" placeholder="Hops Name.." class="search-hops">
+                    <input type="text" placeholder="Hops Name.." class="search-hops" name ="&hops=">
                     <label>Malt</label>
-                    <input type="text" placeholder="Malt Name.." class="search-malt">
+                    <input type="text" placeholder="Malt Name.." class="search-malt" name ="&malt=">
                     <label>Brewed Before</label>
-                    <input type="month" placeholder="mm-yyyy" class="bre-bf">
+                    <input type="text" placeholder="mm-yyyy" class="bre-bf" name ="&brewed_before=">
                     <label>Brewed After</label>
-                    <input type="month" placeholder="mm-yyy" class="bre-af">
+                    <input type="text" placeholder="mm-yyyy" class="bre-af" name ="&brewed_after=">
                     <label>Alcohol By Volume Greather Than</label>
-                    <input type="number" placeholder="0.0" class="abv-gt">
+                    <input type="number" placeholder="0.0" class="abv-gt" name ="&abv_gt=">
                     <label>Alcohol By Volume Less Than</label>
-                    <input type="number" placeholder="0.0" class="abv-lt">
+                    <input type="number" placeholder="0.0" class="abv-lt" name="&abv_lt">
                     <button>Search</button>   
                     
                 </form>
                 <div class="result">
                     <h2>Results:</h2>
+                    <span class="prev hidden">&lt;</span>
+                    <span class="next hidden">&gt;</span>
                     <span class="error-msg"></span>
                     <ul class="result-list">
                         <li></li>

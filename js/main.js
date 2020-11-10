@@ -1,7 +1,9 @@
-const endpointUrl = 'https://api.punkapi.com/v2/'
+
+const errorMsg = document.querySelector('.error-msg')
+let search = ''
+let counter = 1
+const url = 'https://api.punkapi.com/v2/beers?per_page=10'
 const links = document.querySelectorAll('nav > a')
-
-
 for(let link of links) {
     link.addEventListener('click', () => {
         document.querySelectorAll('main > section').forEach(
@@ -18,15 +20,27 @@ async function getData(url) {
     return data
 }
 
-
 function renderSearchList(result) {
-    const errorMsg = document.querySelector('.error-msg')
+    if(document.querySelector('.prev').classList.contains('hidden')) {
+        document.querySelector('.prev').classList.add('hidden')
+    }
+    if(document.querySelector('.next').classList.contains('hidden')) {
+        document.querySelector('.next').classList.add('hidden')
+    }
     const list = document.querySelectorAll('.result-list li')
     errorMsg.innerText = ''
     
     for(item of list) {
         item.innerText = ''
         item.style.background = 'none'
+        item.removeEventListener('click', () => {
+            renderDetails(result[i])
+            document.querySelectorAll('main > section').forEach(
+                section => section.classList.remove('active')
+            )
+            document.querySelector('.info').classList.add('active')
+        })
+        item.style.cursor = 'auto'         
     }
     if(result.length == 0 || result == null) {
         document.querySelector('.search > .wrapper-form ul').classList.add('hidden')
@@ -34,75 +48,76 @@ function renderSearchList(result) {
     } else if (result.length > 0) {
         errorMsg.innerText = ''
         document.querySelector('.search > .wrapper-form ul').classList.remove('hidden')
-        for(let i = 0; i < list.length; i++) {
-            //console.log(result[i].name)
-            list[i].innerText = result[i].name
-            list[i].style.background = 'rgba(255, 255, 255, 0.63)'
-            list[i].addEventListener('click', () => {
+        if(result.length == list.length) {
+            document.querySelector('.next').classList.remove('hidden')
+            document.querySelector('.next').addEventListener('click', next)
+            document.querySelector('.next').style.cursor = 'pointer'
+            if(counter > 1) {
+                document.querySelector('.prev').classList.remove('hidden')
+                document.querySelector('.prev').addEventListener('click', prev)
+                document.querySelector('.prev').style.cursor = 'pointer'
+            } else if (counter == 1) {
+        document.querySelector('.prev').classList.add('hidden')
+    }
+            for(let i = 0; i < result.length; i++) {
+                list[i].innerText = result[i].name
+                list[i].style.background = 'rgba(255, 255, 255, 0.63)'
+                list[i].addEventListener('click', () => {
                     renderDetails(result[i])
                     document.querySelectorAll('main > section').forEach(
                         section => section.classList.remove('active')
                     )
                     document.querySelector('.info').classList.add('active')
-            })
+                })
+                list[i].style.cursor = 'pointer'
+            } 
+        } else if (result.length < list.length) {
+            document.querySelector('.next').classList.add('hidden')
+            for(let i = 0; i < result.length; i++) {
+                list[i].innerText = result[i].name
+                list[i].style.background = 'rgba(255, 255, 255, 0.63)'
+                list[i].addEventListener('click', () => {
+                    renderDetails(result[i])
+                    document.querySelectorAll('main > section').forEach(
+                        section => section.classList.remove('active')
+                    )
+                    document.querySelector('.info').classList.add('active')
+                })
+                list[i].style.cursor = 'pointer'
+            } 
         }
     }
 }
 
-async function search() {
-    let result
-    const url = 'https://api.punkapi.com/v2/beers?'
-    const nameSearch = '&beer_name='
-    const hopsSearch = '&hops='
-    const maltSearch = '&malt='
-    let searchString = ''
-    const name = document.querySelector('.search-name')
-    const hops = document.querySelector('.search-hops')
-    const malt = document.querySelector('.search-malt')
-    /* const bb = document.querySelector('.bre-bf')
-    const ba = document.querySelector('.bre-af')
-    const abvG = document.querySelector('.abv-gt')
-    const abvL = document.querySelector('.abv-lt') */
-    name.addEventListener('keyup', async () => {
-        searchString += nameSearch + name.value
-    })
-    hops.addEventListener('keyup', async () => {
-        searchString += hopsSearch + hops.value
-        //url += '&hops=' + hops.value
-        //result = await getData(url + 'hops=' + hops.value)
-        //renderSearchList(result)
-    })
-    malt.addEventListener('keyup', async () => {
-        //url += '&malt=' + malt.value
-        //result = await getData(url + 'malt=' + malt.value)
-        //renderSearchList(result)
-    })
-    /* bb.addEventListener('keyup', async () => {
-        console.log('bb')
-        result = await getData(url + 'brewed_before' + bb.value)
-        //renderSearchList(result)
-    })
-    ba.addEventListener('keyup', async () => {
-        console.log('ba')
-        result = await getData(url + 'brewed_after=' + ba.value)
-        //renderSearchList(result)
-    })
-    abvG.addEventListener('keyup', async () => {
-        console.log('abvG')
-        result = await getData(url + 'abv_gt' + abvG.value)
-        //renderSearchList(result)
-    })
-    abvL.addEventListener('keyup', async () => {
-        console.log('abvL')
-        result = await getData(url + 'abv_lt' + abvL.value)
-        //renderSearchList(result)
-    }) */
-    
+async function next() {
+    counter++
+    nextPage = await getData(url + '&page=' + counter + search)
+    if(nextPage.length > 0) {
+        renderSearchList(nextPage)
+    }
 }
 
+async function prev() {
+    counter--
+    prevPage = await getData(url + '&page=' + counter + search)
+    if(prevPage.length > 0) {
+        renderSearchList(prevPage)
+    } 
+}
+
+async function advancedSearch () {
+    search = ''
+    const form = document.forms['advancedSearch']
+    for(let i = 0; i < form.length; i++) {
+        if(form[i].value.length > 0) {
+            search += form[i].name + form[i].value
+        }
+    }
+    result = await getData(url + search)
+    renderSearchList(result)
+}
 
 function renderDetails (beer) {
-    console.log(beer)
     const beerImg = document.querySelector('.beer-img')
     const beerInfo = document.querySelector('.beer-info')
     beerImg.src = beer.image_url
@@ -154,7 +169,6 @@ async function randomBeer() {
     }
     beerName.innerText = data[0].name
     tagline.innerText = data[0].tagline
-    //console.log(data[0])
     if(link.classList.contains('hidden')){
         link.classList.remove('hidden')
     }
@@ -167,7 +181,9 @@ async function randomBeer() {
     })
 }
 
-// if page classlist containts 'active' => 
+document.querySelector('form button').addEventListener('click', (event) => {
+    event.preventDefault()
+    advancedSearch()
+})
 document.querySelector('.get-random').addEventListener('click', randomBeer)
 randomBeer()
-search()

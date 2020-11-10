@@ -289,6 +289,22 @@ main > .search > .wrapper-form h2 {
     position: relative;
     top: -500px;
     left: 420px;
+    margin-bottom: 10px;
+}
+
+main > .search > .wrapper-form span.prev, span.next {
+    position: relative;
+    top: -500px;
+    left: 550px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main > .search > .wrapper-form span.prev {
+    margin-right: 30px;
+}
+main > .search > .wrapper-form span.next {
+    margin-left: 30px;
 }
 
 main > .search > .wrapper-form ul > li {
@@ -306,7 +322,7 @@ main > .search ul > li:hover {
     font-weight: 700;
 }
 
-main > .search > .wrapper-form span {
+main > .search > .wrapper-form span.error-msg {
     color: red;
     font-weight: 700;
     font-size: 1.5em;
