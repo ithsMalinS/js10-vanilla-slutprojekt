@@ -126,7 +126,7 @@ async function advancedSearch () {
             search += form[i].name + form[i].value
         }
     }
-    result = await getData(url + search)
+    result = await isCached(url +'&page=' + counter + search)
     renderSearchList(result)
 }
 
