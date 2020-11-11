@@ -17,6 +17,21 @@ for(let link of links) {
 }
 
 
+function validate() {
+    const x = document.querySelector('#brewed-before')
+    const pattern = new RegExp(x.pattern)
+    const OK = pattern.exec(x.value)
+    if(!OK) {
+        console.log('not valid')
+        return false
+    } else {
+        console.log('valid')
+        console.log(x.value)
+        return true
+    }
+}
+
+
 async function isCached(url) {
     if(cache[url]) {
         console.log(cache)
@@ -58,6 +73,8 @@ function renderSearchList(result) {
         item.style.cursor = 'auto'         
     }
     if(result.length == 0 || result == null) {
+        document.querySelector('.next').classList.add('hidden')
+        document.querySelector('.prev').classList.add('hidden')
         document.querySelector('.search > .wrapper-form ul').classList.add('hidden')
         errorMsg.innerText = 'No results'
     } else if (result.length > 0) {
@@ -196,7 +213,13 @@ async function randomBeer() {
 
 document.querySelector('form button').addEventListener('click', (event) => {
     event.preventDefault()
-    advancedSearch()
+    if(validate() == true) {
+        advancedSearch()
+    }
 })
-document.querySelector('.get-random').addEventListener('click', randomBeer)
+document.querySelector('.get-random').addEventListener('click', (event) => {
+    event.preventDefault()
+    randomBeer()
+})
+
 randomBeer()

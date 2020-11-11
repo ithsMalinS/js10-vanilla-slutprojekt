@@ -261,6 +261,13 @@ main .wrapper-form > .form-search > input {
     margin-bottom: 15px;
 }
 
+main .wrapper-form > .form-search > input:invalid {
+    border: 2px solid red;
+}
+
+main .wrapper-form > .form-search > span.invalid {
+    color: red;
+}
 
 
 /* main .wrapper-form .form-search > .search-btn {
