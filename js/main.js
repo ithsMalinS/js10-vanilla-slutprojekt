@@ -1,4 +1,6 @@
 
+
+const cache = {}
 const errorMsg = document.querySelector('.error-msg')
 let search = ''
 let counter = 1
@@ -12,6 +14,19 @@ for(let link of links) {
         const section = document.querySelector(('.' + link.innerText.toLowerCase()))
         section.classList.add('active')
     })
+}
+
+
+async function isCached(url) {
+    if(cache[url]) {
+        console.log(cache)
+        return cache[url]
+    } else {
+        const data = await getData(url)
+        cache[url] = data
+        console.log(cache)
+        return data
+    }
 }
 
 async function getData(url) {
@@ -91,18 +106,16 @@ function renderSearchList(result) {
 
 async function next() {
     counter++
-    nextPage = await getData(url + '&page=' + counter + search)
-    if(nextPage.length > 0) {
-        renderSearchList(nextPage)
-    }
+    let nextUrl = url + '&page=' + counter + search
+    nextPage = await isCached(nextUrl)
+    renderSearchList(nextPage)
 }
 
 async function prev() {
     counter--
-    prevPage = await getData(url + '&page=' + counter + search)
-    if(prevPage.length > 0) {
-        renderSearchList(prevPage)
-    } 
+    let prevUrl = url + '&page=' + counter + search
+    prevPage = await isCached(prevUrl)
+    renderSearchList(prevPage) 
 }
 
 async function advancedSearch () {
