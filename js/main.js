@@ -18,36 +18,29 @@ for(let link of links) {
 
 
 function validate() {
-    const x = document.querySelector('#brewed-before')
-    const pattern = new RegExp(x.pattern)
-    const OK = pattern.exec(x.value)
-    if(!OK) {
-        console.log('not valid')
+    const invalidIputs = document.querySelectorAll('input:invalid')
+    if(invalidIputs.length > 0) {
         return false
-    } else {
-        console.log('valid')
-        console.log(x.value)
-        return true
+    } else if (search == '') {
+        alert('Please fill in one of the boxes to render a search')
+        return false
     }
-}
-
-
-async function isCached(url) {
-    if(cache[url]) {
-        console.log(cache)
-        return cache[url]
-    } else {
-        const data = await getData(url)
-        cache[url] = data
-        console.log(cache)
-        return data
-    }
-}
+    return true
+} 
 
 async function getData(url) {
-    const request = await fetch(url)
-    const data = await request.json()
-    return data
+    if(cache[url]) {
+        return cache[url]
+    } else if(url === 'https://api.punkapi.com/v2/beers/random') {
+        const request = await fetch(url)
+        const data = await request.json()
+        return data
+    }else {
+        const request = await fetch(url)
+        const data = await request.json()
+        cache[url] = data
+        return data
+    }
 }
 
 function renderSearchList(result) {
@@ -124,18 +117,18 @@ function renderSearchList(result) {
 async function next() {
     counter++
     let nextUrl = url + '&page=' + counter + search
-    nextPage = await isCached(nextUrl)
+    nextPage = await getData(nextUrl)
     renderSearchList(nextPage)
 }
 
 async function prev() {
     counter--
     let prevUrl = url + '&page=' + counter + search
-    prevPage = await isCached(prevUrl)
+    prevPage = await getData(prevUrl)
     renderSearchList(prevPage) 
 }
 
-async function advancedSearch () {
+async function advancedSearch() {
     search = ''
     const form = document.forms['advancedSearch']
     for(let i = 0; i < form.length; i++) {
@@ -143,7 +136,7 @@ async function advancedSearch () {
             search += form[i].name + form[i].value
         }
     }
-    result = await isCached(url +'&page=' + counter + search)
+    result = await getData(url + '&page=' + counter + search)
     renderSearchList(result)
 }
 
@@ -213,7 +206,7 @@ async function randomBeer() {
 
 document.querySelector('form button').addEventListener('click', (event) => {
     event.preventDefault()
-    if(validate() == true) {
+    if (validate() == true) {
         advancedSearch()
     }
 })

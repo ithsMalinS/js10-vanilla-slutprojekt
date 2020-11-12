@@ -49,22 +49,22 @@
                 <form name="advancedSearch" class="form-search">
                     <label for="beer">Beer Name</label>
                     <span class="invalid display-none">Input must be a name</span>
-                    <input id="beer" type="text" placeholder="Beer Name.." class="search-name" name ="&beer_name=">
+                    <input id="beer" type="text" placeholder="Beer Name.." class="search-name" name="&beer_name=" pattern=".{3,}" title="Input must be at least 3 characters">
                     <label for="hops">Hops</label>
                     <span class="invalid display-none">Input must be a name</span>
-                    <input id="hops" type="text" placeholder="Hops Name.." class="search-hops" name ="&hops=">
+                    <input id="hops" type="text" placeholder="Hops Name.." class="search-hops" name="&hops=" pattern=".{3,}" title="Input must be at least 3 characters">
                     <label for="malt">Malt</label>
                     <span class="invalid display-none">Input must be a name</span>
-                    <input id="malt" type="text" placeholder="Malt Name.." class="search-malt" name ="&malt=">
+                    <input id="malt" type="text" placeholder="Malt Name.." class="search-malt" name="&malt=" pattern=".{3,}" title="Input must be at least 3 characters">
                     <label for="brewed-before">Brewed Before</label>
                     <span class="invalid display-none">Input must follow pattern MM-YYYY</span>
-                    <input id="brewed-before" type="text" placeholder="mm-yyyy" class="bre-bf" name ="&brewed_before=" pattern="[0-9]{2}-[0-9]{4}" title="MM-YYYY">
+                    <input id="brewed-before" type="text" placeholder="mm-yyyy" class="bre-bf" name="&brewed_before=" pattern="[0-9]{2}-[0-9]{4}" title="MM-YYYY">
                     <label for="brewed-after">Brewed After</label>
                     <span class="invalid display-none">Input must follow pattern MM-YYYY</span>
-                    <input id="brewed-after" type="text" placeholder="mm-yyyy" class="bre-af" name ="&brewed_after=" pattern="[0-9]{2}-[0-9]{4}" title="MM-YYYY">
+                    <input id="brewed-after" type="text" placeholder="mm-yyyy" class="bre-af" name="&brewed_after=" pattern="[0-9]{2}-[0-9]{4}" title="MM-YYYY">
                     <label for="abv-gt">Alcohol By Volume Greather Than</label>
                     <span class="invalid display-none">Input must be a number</span>
-                    <input id="abv-gt" type="number" placeholder="0.0" class="abv-gt" name ="&abv_gt=" pattern="[0-9]" title="5.0">
+                    <input id="abv-gt" type="number" placeholder="0.0" class="abv-gt" name ="&abv_gt=">
                     <label for="abv-lt">Alcohol By Volume Less Than</label>
                     <span class="invalid display-none">Input must be a number</span>
                     <input id="abv-lt" type="number" placeholder="0.0" class="abv-lt" name="&abv_lt">
