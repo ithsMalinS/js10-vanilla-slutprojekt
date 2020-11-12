@@ -7,11 +7,8 @@
 body {
     height: 100vh;
     width: 100vw;
-    /*background: linear-gradient(150deg, rgb(98, 209, 240), 45%, rgb(232, 233, 234) 36%);*/
-    /*background-color: rgb(7, 75, 108);*/
     background: linear-gradient(to bottom right, rgb(7, 75, 108), rgb(25, 33, 35));
     font-family: sans-serif;
-    /* font-family: 'Big Shoulders Stencil Display', cursive; */
 }
 
 header {
@@ -23,6 +20,7 @@ header {
 header > nav {
     width: inherit;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header > nav > a {
@@ -30,6 +28,10 @@ header > nav > a {
     text-decoration: none;
     color: white;
     font-size: 1.4em;
+}
+
+header > nav > a:hover {
+    font-weight: 600;
 }
 
 main {
@@ -79,13 +81,19 @@ main .left > .card > .card-top > img {
 
 main .left > .card > .card-bottom {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     padding: 10px;
     background-color: white;
     height: 30%;
 }
 
+main .left > .card > .card-bottom h2 {
+    font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
 main .left > .card > .card-bottom .card-btn {
+    font-family: 'Montserrat', sans-serif;
     border: none;
     margin-top: 7%;
     margin-left: 60%;
@@ -111,12 +119,13 @@ main .right {
 
 main .right h2 {
     font-size: 3em;
-    font-weight: lighter;
+    font-family: 'Big Shoulders Stencil Display', cursive;
     color: white;
-    margin: 0 0 50px 150px;
+    margin: 0 0 50px 100px;
 }
 
 main .right button.get-random {
+    font-family: 'Montserrat', sans-serif;
     width: 15%;
     height: 10%;
     padding: 10px 10px;
@@ -124,10 +133,12 @@ main .right button.get-random {
     border: rgb(25, 33, 35);
     outline: none;
     box-shadow: none;
-    background-color: rgb(5, 162, 210);
+    background-color: #9379A6;
 }
 
-
+main .right button.get-random:hover {
+    font-weight: 600;
+}
 
 
 /******************************************************    Info page     *****************************************************************/
@@ -135,87 +146,86 @@ main .right button.get-random {
 
 main > .info {
     padding: 0 50px 0 50px;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 main > .info > .beer-img {
     height: 700px;
     width: auto;
-    margin-left: 200px;
 }
 
 main > .info > .beer-info {
-   
-    padding: 0 50px 0 50px;
+    width: 70%;
     display: flex;
-    width: 80%;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
-    font-size: 16px;
+    margin-left: 100px;
 }
 
-main > .info > .beer-info h2 {
-    display: block;
-    font-size: 4em;
+main > .info > .beer-info > .top {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     color: white;
-    text-shadow: 2px 1px 1px black;         /* horizontal-offset vertical-offset 'blur' colour */
-    -moz-text-shadow: 2px 1px 1px black;
-    margin-bottom: 30px;
+    padding: 20px 50px;
 }
 
-main > .info > .beer-info > p {
-    line-height: 120%;
-    font-size: 1.2em;
-    margin-bottom: 4%;
+main > .info > .beer-info > .top > h2 {
+    font-size: 3em;
+    font-family: 'Big Shoulders Stencil Display', cursive;
 }
 
-main > .info > .beer-info > p:nth-of-type(1) {
-    margin-top: -30px;
-    font-size: 16px;
+main > .info > .beer-info > .top > p {
+    margin: 0 100px 0 100px;
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
 }
 
-main > .info > .beer-info p.food {
-    text-align: center;
-    width: 500px;
-    font-size: 16px;
-    align-self: center;
+main > .info > .beer-info > .btm {
+    padding: 20px 50px;
+    display: flex;
+    height: auto;
 }
 
-main > .info > .beer-info p.tips {
-    text-align: center;
-    width: 500px;
-    font-size: 16px;
-    align-self: center;
+main > .info > .beer-info > .btm > .left {
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
 }
 
-main > .info > .beer-info > .description {
-    font-size: 20px;
-    width: 900px;
-    align-self: center;
-}
-
-main > .info > .beer-info ul {
-    align-self: center;
-    width: 500px;
+main > .info > .beer-info > .btm > .left li {
     list-style-type: none;
-    line-height: 200%;
-    text-align: left;
-    font-size: 16px;
 }
-main > .info > .beer-info ul > p {
-    font-size: 20px;
+
+main > .info > .beer-info > .btm > .left p {
+    margin-top: 20px;
+}
+
+main > .info > .beer-info > .btm > .right {
+    font-family: 'Montserrat', sans-serif;
+    width: 50%;
+    color: white;
+    text-align: center;
+    padding: 20px 50px;
+}
+
+main > .info > .beer-info > .btm > .right li {
+    list-style-type: none;
 }
 
 main > .info > .beer-info img {
+    margin-bottom: 10px;
     height: 40px;
     width: 40px;
-    align-self: center;
-    margin-top: 50px;
 }
 main > .info > .beer-info img:nth-of-type(2) {
-    margin-top: 0;
+    margin-top: 30px;
 }
+
 
 /******************************************************    Search page     *****************************************************************/
 
@@ -228,6 +238,7 @@ main .search {
 }
 
 main .search h1 {
+    font-family: 'Big Shoulders Stencil Display', cursive;
     font-size: 3em;
     margin-bottom: 30px;
     color: white;
@@ -241,6 +252,7 @@ main .search .wrapper-form {
 }
 
 main .search .wrapper-form > .form-search {
+    font-family: 'Montserrat', sans-serif;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -271,20 +283,14 @@ main .wrapper-form > .form-search > input:invalid {
 
 main .wrapper-form > .form-search > span.invalid {
     color: red;
+    font-family: 'Montserrat', sans-serif;
 }
 
 main .search > .wrapper-form > .form-search button {
+    font-family: 'Montserrat', sans-serif;
     width: 200px;
     padding: 10px 20px;
 }
-
-/* 
-main .wrapper-form > .form-search:nth-child(2) {
-    color: white;
-    margin-top: -2%;
-} */
-
-
 
 main .search > .wrapper-form > .result {
     display: flex;
@@ -299,6 +305,7 @@ main .search > .wrapper-form > .result > ul {
 }
 
 main .search > .wrapper-form > .result > ul > li {
+    font-family: 'Montserrat', sans-serif;
     width: 795px;
     text-align: left;
     list-style-type: none;
@@ -331,6 +338,7 @@ main .search > .wrapper-form > .result span.next {
 main .search > .wrapper-form > .result > span.error-msg {
     color: red;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2em;
 }
 

@@ -26,14 +26,12 @@ function validate() {
     for(let span of invalidSpan) {
         span.classList.add('display-none')
     }
-    
     for(let input of inputs) {
         string += input.value
     }
     if(invalidInputs.length > 0) {
         for(let i = 0; i < invalidInputs.length; i++) {
             let x = invalidInputs[i].previousElementSibling
-            console.log(x)
             x.classList.remove('display-none')
         }
         return false
@@ -68,7 +66,6 @@ function renderSearchList(result) {
     }
     const list = document.querySelectorAll('.result-list li')
     errorMsg.innerText = ''
-    
     for(item of list) {
         item.innerText = ''
         item.style.background = 'none'
@@ -146,7 +143,7 @@ async function prev() {
 
 async function advancedSearch() {
     search = ''
-    const searchParam = ["&beer_name=", "&hops=", "&malt=", "&brewed_before=", "&brewed_after=", "&abv_gt=", "&abv_lt"]
+    const searchParam = ["&beer_name=", "&hops=", "&malt=", "&brewed_before=", "&brewed_after=", "&abv_gt=", "&abv_lt="]
     const form = document.forms['advancedSearch']
     for(let i = 0; i < form.length; i++) {
         if(form[i].value.length > 0) {
@@ -159,38 +156,54 @@ async function advancedSearch() {
 
 function renderDetails (beer) {
     const beerImg = document.querySelector('.beer-img')
-    const beerInfo = document.querySelector('.beer-info')
+    const top = document.querySelector('.beer-info > .top')
+    const btmL = document.querySelector('.beer-info > .btm > .left')
+    const btmR = document.querySelector('.beer-info > .btm > .right')
     beerImg.src = beer.image_url
-    let beerMalt = ''
+
+    let beerMalt = []
     for(let i = 0; i < beer.ingredients.malt.length; i++) {
-        if(i == beer.ingredients.malt.length -1) {
-            beerMalt += beer.ingredients.malt[i].name
-        } else {
-            beerMalt += beer.ingredients.malt[i].name  + ', '
-        }
+        beerMalt.push(beer.ingredients.malt[i])
     }
-    let beerHops = ''
-    for(let i= 0; i < beer.ingredients.hops.length; i++) {
-        if(i == beer.ingredients.hops.length -1) {
-            beerHops += beer.ingredients.hops[i].name
-        } else {
-            beerHops += beer.ingredients.hops[i].name + ', '
-        }
-        
+    let beerHops = []
+    for(let i = 0; i < beer.ingredients.hops.length; i++) {
+        beerHops.push(beer.ingredients.hops[i])
     }
-    beerInfo.innerHTML = `
-    <h2>${beer.name}</h2>
-    <p>Alcohol by volume: ${beer.abv}, Volume: ${beer.volume.value} ${beer.volume.unit} </p> 
-    <p class="description">${beer.description}</p>
-    <ul>
-    <p>Ingredients: </p>
-    <li>Hops: ${beerHops}</li>
-    <li>Malt: ${beerMalt}</li>
-    <li>Yeast: ${beer.ingredients.yeast}</li>
+    
+    top.innerHTML = `
+    <h2>${beer.name}</h2> 
+    <p class="description">${beer.description}</p> `
+
+    btmL.innerHTML = `
+    <p>Alcohol by volume: ${beer.abv}, Volume: ${beer.volume.value} ${beer.volume.unit} </p>
+    <p>Malt: </p>
+    <ul>`
+    for(let malt of beerMalt) {
+        btmL.innerHTML += `
+        <li>${malt.name}, ${malt.amount.value} ${malt.amount.unit}</li>`
+    }
+    btmL.innerHTML += `
     </ul>
-    <img src="assets/fork.png"> <p class="food"> Food pairing: <br> ${beer.food_pairing}</p><br>
-    <img src="assets/beer.png"> <p class="tips"> Brewers tips: <br>${beer.brewers_tips}</p>
-    `
+    <p>Hops: </p>
+    <ul>`
+    for(let hops of beerHops) {
+        btmL.innerHTML += `
+        <li>${hops.name}, ${hops.amount.value} ${hops.amount.unit}</li>`
+    }
+    btmL.innerHTML += `
+    </ul>
+    <p>Yeast: ${beer.ingredients.yeast}</p>`
+
+    btmR.innerHTML = `
+    <img src="assets/forkWhite.png"> 
+    <p class="food">Food pairing: </p>
+    <ul>`
+    for(let food of beer.food_pairing) {
+        btmR.innerHTML += `<li>${food}</li>`
+    }
+    btmR.innerHTML += `
+    </ul>
+    <img src="assets/beerWhite.png"> <p class="tips"> Brewers tips: <br>${beer.brewers_tips}</p>`
 }
 
 async function randomBeer() {
