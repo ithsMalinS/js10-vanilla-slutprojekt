@@ -18,11 +18,16 @@ for(let link of links) {
 
 
 function validate() {
+    let string = ''
+    const inputs = document.querySelectorAll('input')
     const invalidIputs = document.querySelectorAll('input:invalid')
+    for(let input of inputs) {
+        string += input.value
+    }
     if(invalidIputs.length > 0) {
         return false
-    } else if (search == '') {
-        alert('Please fill in one of the boxes to render a search')
+    } else if (string === '') {
+        alert('Please fill in one of the fields')
         return false
     }
     return true
