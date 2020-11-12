@@ -36,7 +36,7 @@ function validate() {
         }
         return false
     } else if (string === '') {
-        alert('Please fill in one of the fields')
+        alert('You left all the fields empty, try again!')
         return false
     }
     return true
