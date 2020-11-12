@@ -16,7 +16,6 @@ for(let link of links) {
     })
 }
 
-
 function validate() {
     let string = ''
     const inputs = document.querySelectorAll('input')
@@ -135,10 +134,11 @@ async function prev() {
 
 async function advancedSearch() {
     search = ''
+    const searchParam = ["&beer_name=", "&hops=", "&malt=", "&brewed_before=", "&brewed_after=", "&abv_gt=", "&abv_lt"]
     const form = document.forms['advancedSearch']
     for(let i = 0; i < form.length; i++) {
         if(form[i].value.length > 0) {
-            search += form[i].name + form[i].value
+            search += searchParam[i] + form[i].value
         }
     }
     result = await getData(url + '&page=' + counter + search)
