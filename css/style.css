@@ -7,10 +7,9 @@
 body {
     height: 100vh;
     width: 99vw;
-    background-color: white;
-    /* background: linear-gradient(150deg, rgb(187, 29, 86), 45%, rgb(232, 233, 234) 36%); */
-    background: linear-gradient(150deg, rgb(98, 209, 240), 45%, rgb(232, 233, 234) 36%);
-    /* background-color: rgb(198, 223, 231); */
+    /*background: linear-gradient(150deg, rgb(98, 209, 240), 45%, rgb(232, 233, 234) 36%);*/
+    /*background-color: rgb(7, 75, 108);*/
+    background: linear-gradient(150deg, rgb(7, 75, 108), 45%, rgb(25, 33, 35));
     font-family: sans-serif;
 }
 
@@ -104,9 +103,11 @@ main button.get-random {
     padding: 10px 10px;
     font-size: 1.5em;
     
+    border: rgb(25, 33, 35);
     outline: none;
     box-shadow: none;
-    background-color: rgb(98, 209, 240);
+    /*background-color: rgb(98, 209, 240);*/
+    background-color: rgb(5, 162, 210);
 }
 
 

@@ -19,11 +19,18 @@ for(let link of links) {
 function validate() {
     let string = ''
     const inputs = document.querySelectorAll('input')
-    const invalidIputs = document.querySelectorAll('input:invalid')
+    const invalidInputs = document.querySelectorAll('input:invalid')
+    
     for(let input of inputs) {
         string += input.value
     }
-    if(invalidIputs.length > 0) {
+    if(invalidInputs.length > 0) {
+        for(let i = 0; i < invalidInputs.length; i++) {
+            let x = invalidInputs[i].previousElementSibling
+            console.log(x)
+            x.classList.remove('display-none')
+            //invalidSpan[i].previousSibling.classList.remove('display-none')
+        }
         return false
     } else if (string === '') {
         alert('Please fill in one of the fields')
