@@ -6,6 +6,8 @@ let search = ''
 let counter = 1
 const url = 'https://api.punkapi.com/v2/beers?per_page=10'
 const links = document.querySelectorAll('nav > a')
+
+
 for(let link of links) {
     link.addEventListener('click', () => {
         document.querySelectorAll('main > section').forEach(
@@ -20,6 +22,10 @@ function validate() {
     let string = ''
     const inputs = document.querySelectorAll('input')
     const invalidInputs = document.querySelectorAll('input:invalid')
+    const invalidSpan = document.querySelectorAll('.invalid')
+    for(let span of invalidSpan) {
+        span.classList.add('display-none')
+    }
     
     for(let input of inputs) {
         string += input.value
@@ -29,7 +35,6 @@ function validate() {
             let x = invalidInputs[i].previousElementSibling
             console.log(x)
             x.classList.remove('display-none')
-            //invalidSpan[i].previousSibling.classList.remove('display-none')
         }
         return false
     } else if (string === '') {

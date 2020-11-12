@@ -6,11 +6,12 @@
 
 body {
     height: 100vh;
-    width: 99vw;
+    width: 100vw;
     /*background: linear-gradient(150deg, rgb(98, 209, 240), 45%, rgb(232, 233, 234) 36%);*/
     /*background-color: rgb(7, 75, 108);*/
-    background: linear-gradient(150deg, rgb(7, 75, 108), 45%, rgb(25, 33, 35));
+    background: linear-gradient(to bottom right, rgb(7, 75, 108), rgb(25, 33, 35));
     font-family: sans-serif;
+    /* font-family: 'Big Shoulders Stencil Display', cursive; */
 }
 
 header {
@@ -31,7 +32,6 @@ header > nav > a {
     font-size: 1.4em;
 }
 
-
 main {
     display: flex;
     width: 100%;
@@ -46,44 +46,46 @@ main > section {
 
 /******************************************************    Startpage     *****************************************************************/
 
-
-main .random {
-    width: inherit;
-    display: flex;
+main .home {
     justify-content: center;
 }
 
-main .random > .card {
-    margin-left: 25%;
+main .left {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .left > .card {
     height: 600px;
     width: 400px;
     box-shadow: 5px 10px 18px #888888;
 }
 
-main .random > .card > .card-top {
+main .left > .card > .card-top {
     height: 72%;
     width: inherit;
     background-color: lightgray;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-main .random > .card > .card-top > img {
+main .left > .card > .card-top > img {
     height: 350px;
     width: auto;
-    align-self: center;
 }
 
-main .random > .card > .card-bottom {
+main .left > .card > .card-bottom {
     text-align: center;
     font-size: 1.2em;
     padding: 10px;
-    outline: none;
     background-color: white;
     height: 30%;
 }
 
-main .random > .card > .card-bottom .card-btn {
+main .left > .card > .card-bottom .card-btn {
     border: none;
     margin-top: 7%;
     margin-left: 60%;
@@ -91,22 +93,37 @@ main .random > .card > .card-bottom .card-btn {
     outline: none;
 }
 
-main .random > .card > .card-bottom .card-btn > span {
+main .left > .card > .card-bottom .card-btn:hover {
+    font-weight: 600;
+}
+
+main .left > .card > .card-bottom .card-btn > span {
     margin-left: 10px;
 }
 
-main button.get-random {
+main .right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .right h2 {
+    font-size: 3em;
+    font-weight: lighter;
+    color: white;
+    margin: 0 0 50px 150px;
+}
+
+main .right button.get-random {
     width: 15%;
     height: 10%;
-    margin-top: 14%;
-    margin-right: 30%;
     padding: 10px 10px;
     font-size: 1.5em;
-    
     border: rgb(25, 33, 35);
     outline: none;
     box-shadow: none;
-    /*background-color: rgb(98, 209, 240);*/
     background-color: rgb(5, 162, 210);
 }
 
@@ -202,53 +219,39 @@ main > .info > .beer-info img:nth-of-type(2) {
 
 /******************************************************    Search page     *****************************************************************/
 
-
-main .wrapper-form {
-    width: 70%;
-    height: auto;
-    display: flex;
+main .search {
     flex-direction: column;
-
-    
-    margin-left: 15%;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
-main .wrapper-form > h1 {
+main .search h1 {
     font-size: 3em;
-    margin-bottom: 5%;
+    margin-bottom: 30px;
     color: white;
 }
 
+main .search .wrapper-form {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
 
-main .wrapper-form > .form-search {
+main .search .wrapper-form > .form-search {
     width: 40%;
     display: flex;
     flex-direction: column;
     columns: auto auto;
     justify-content: flex-start;
     text-align: left;
-    color: black;
-}
-
-main .wrapper-form > .form-search label {
-    color: black;
-    font-weight: 700;
-}
-
-main .wrapper-form > .form-search button {
-    width: 200px;
-    padding: 10px 20px;
-}
-
-
-main .wrapper-form > .form-search:nth-child(2) {
     color: white;
-    margin-top: -2%;
 }
 
-main .wrapper-form > .form-search > p {
-    margin-top: 10px;
+main .search .wrapper-form > .form-search label {
+    font-weight: 700;
 }
 
 main .wrapper-form > .form-search > input {
@@ -270,75 +273,65 @@ main .wrapper-form > .form-search > span.invalid {
     color: red;
 }
 
-
-/* main .wrapper-form .form-search > .search-btn {
-    width: auto;
-    padding: 10px;
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    color: grey;
+main .search > .wrapper-form > .form-search button {
+    width: 200px;
+    padding: 10px 20px;
 }
 
-main > .search > .wrapper-form .form-search > .search-btn:hover {
-    color: black;
+/* 
+main .wrapper-form > .form-search:nth-child(2) {
+    color: white;
+    margin-top: -2%;
 } */
 
 
 
-main > .search > .wrapper-form ul {
+main .search > .wrapper-form > .result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main .search > .wrapper-form > .result > ul {
     text-align: left;
-    width: 40%;
-    position: relative;
-    top: -500px;
-    left: 600px;
+    margin-bottom: 40px;
 }
 
-main > .search > .wrapper-form h2 {
-    position: relative;
-    top: -500px;
-    left: 420px;
-    margin-bottom: 10px;
-}
-
-main > .search > .wrapper-form span.prev, span.next {
-    position: relative;
-    top: -500px;
-    left: 550px;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-main > .search > .wrapper-form span.prev {
-    margin-right: 30px;
-}
-main > .search > .wrapper-form span.next {
-    margin-left: 30px;
-}
-
-main > .search > .wrapper-form ul > li {
+main .search > .wrapper-form > .result > ul > li {
     width: 795px;
     text-align: left;
     list-style-type: none;
     font-size: 16px;
-    /* background-color: rgba(255, 255, 255, 0.63); */
     cursor: pointer;
-    margin-left: 20%;
     padding: 1.2% 0 1.1% 2%;
 }
 
-main > .search ul > li:hover {
+main .search > .wrapper-form > .result > ul > li:hover {
     font-weight: 700;
 }
 
-main > .search > .wrapper-form span.error-msg {
+main .search > .wrapper-form > .result > .nav {
+    margin-bottom: 20px;
+}
+
+main .search > .wrapper-form > .result > .nav span.prev, span.next {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+
+main .search > .wrapper-form > .result span.prev {
+    margin-right: 30px;
+}
+main .search > .wrapper-form > .result span.next {
+    margin-left: 30px;
+}
+
+main .search > .wrapper-form > .result > span.error-msg {
     color: red;
     font-weight: 700;
-    font-size: 1.5em;
-    width: 59.9%;
-    margin-left: 20%;
-    position: relative;
-    top: -420px;
-    left: 290px;
+    font-size: 2em;
 }
 
 
