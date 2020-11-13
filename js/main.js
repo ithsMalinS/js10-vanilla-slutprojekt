@@ -159,7 +159,11 @@ function renderDetails (beer) {
     const top = document.querySelector('.beer-info > .top')
     const btmL = document.querySelector('.beer-info > .btm > .left')
     const btmR = document.querySelector('.beer-info > .btm > .right')
-    beerImg.src = beer.image_url
+    if(beer.image_url != null) {
+        beerImg.src = beer.image_url
+    } else {
+        beerImg.src = ''
+    }
 
     let beerMalt = []
     for(let i = 0; i < beer.ingredients.malt.length; i++) {
